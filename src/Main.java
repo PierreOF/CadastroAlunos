@@ -59,11 +59,16 @@ public class Main {
                     }else{
                         System.out.println("Digite a matricula do aluno");
                         int matricula = input.nextInt();
-                        System.out.println("Digite o novo nome");
-                        String nome = input.next();
-                        System.out.println("Digite a nova idade");
-                        int idade = input.nextInt();
-                        cadastroAlunos.atualizarAluno(matricula,nome,idade);
+                        if(cadastroAlunos.validarMatricula(matricula)){
+                            System.out.println("Digite o novo nome");
+                            String nome = input.next();
+                            System.out.println("Digite a nova idade");
+                            int idade = input.nextInt();
+                            cadastroAlunos.atualizarAluno(matricula,nome,idade);
+                        }else{
+                            System.out.println("Aluno com essa matricula não encontrado!");
+                        }
+
                     }
                 }
                 case 5 -> {

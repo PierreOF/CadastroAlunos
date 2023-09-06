@@ -9,6 +9,7 @@ public class CadastroAlunos {
         int matricula = aluno.getMatricula() ;
         if (!alunos.contains(aluno)) {
             alunos.add(aluno);
+            System.out.println("Aluno cadastrado com sucesso!");
         }else{
             System.out.println("Aluno com com a matricula " + matricula + " já cadastrado no sistema.");
         }
@@ -48,6 +49,12 @@ public class CadastroAlunos {
     public boolean listaVazia(){
         return alunos.isEmpty();
     }
-
-
+    public boolean validarMatricula(int matricula) {
+        for (Aluno aluno : alunos) {
+            if (aluno.getMatricula() == matricula) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
